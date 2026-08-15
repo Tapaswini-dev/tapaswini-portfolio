@@ -7,26 +7,26 @@ const projects = [
       'A React and TypeScript dashboard for event planning, attendee tracking, and streamlined reservation workflows with API-based content management.',
     technologies: ['React.js', 'TypeScript', 'REST API'],
     github: 'https://github.com/Tapaswini-dev/events',
-    demo: '#',
+    demo: '/events-demo',
     features: ['Event listing', 'Search and filters', 'Attendee management', 'Responsive dashboard']
   },
   {
     title: 'Analytics Dashboard',
     description:
-      'A portfolio/demo analytics interface built with Angular, NgRx and Chart.js to present data clearly and support interactive reporting scenarios.',
-    technologies: ['Angular', 'TypeScript', 'NgRx', 'Chart.js'],
-    github: 'https://github.com/Tapaswini-dev/analytics-dashboard',
-    demo: '#',
-    features: ['Visual charts', 'State-driven data', 'Responsive layout', 'Dashboard panels']
+      'A portfolio/demo analytics interface built with React, TypeScript, and charting tools to present complex business data in a clean executive layout.',
+    technologies: ['React.js', 'TypeScript', 'Recharts', 'Tailwind CSS'],
+    github: 'https://github.com/Tapaswini-dev',
+    demo: '/events-demo',
+    features: ['Visual charts', 'Executive metrics', 'Responsive layout', 'Data storytelling']
   },
   {
     title: 'E-commerce Application',
     description:
-      'A modern e-commerce prototype built with Next.js and TypeScript, designed for product browsing, search, and customer-friendly shopping interactions.',
-    technologies: ['Next.js', 'TypeScript', 'Redux', 'REST API', 'Tailwind CSS'],
-    github: 'https://github.com/Tapaswini-dev/nextjs-ecommerce',
-    demo: '#',
-    features: ['Product listing', 'Search', 'Filters', 'Cart and wishlist']
+      'A modern product discovery interface built with Next.js and TypeScript, designed for browsing, filtering, and conversion-focused storefront experiences.',
+    technologies: ['Next.js', 'TypeScript', 'REST API', 'Tailwind CSS'],
+    github: 'https://github.com/Tapaswini-dev',
+    demo: '/events-demo',
+    features: ['Product listing', 'Search', 'Filters', 'Modern storefront UI']
   }
 ];
 
