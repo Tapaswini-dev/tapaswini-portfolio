@@ -3,7 +3,11 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Velora Realty</title>
+    <meta
+      name="description"
+      content="Velora Realty property landing page featuring modern homes, luxury neighborhoods, and investment opportunities."
+    />
+    <title>Velora Realty | Luxury Homes</title>
     <style>
       :root {
         --bg: #f5f7fb;
@@ -17,6 +21,7 @@
         --success: #1aa36e;
         --shadow: 0 20px 44px rgba(17, 24, 39, 0.12);
       }
+
       * { box-sizing: border-box; }
       body {
         margin: 0;
@@ -27,85 +32,277 @@
       a { text-decoration: none; color: inherit; }
       img { max-width: 100%; display: block; }
       .container { width: min(1200px, calc(100% - 32px)); margin: 0 auto; }
+
       .topbar {
-        position: sticky; top: 0; z-index: 20; background: rgba(255,255,255,0.85); backdrop-filter: blur(10px); border-bottom: 1px solid var(--line);
+        position: sticky;
+        top: 0;
+        z-index: 20;
+        background: rgba(255, 255, 255, 0.85);
+        backdrop-filter: blur(10px);
+        border-bottom: 1px solid var(--line);
       }
-      .nav { display:flex; align-items:center; justify-content:space-between; min-height:72px; }
-      .brand { font-size:1.35rem; font-weight:800; letter-spacing:-0.06em; }
+      .nav {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        min-height: 72px;
+      }
+      .brand {
+        font-size: 1.35rem;
+        font-weight: 800;
+        letter-spacing: -0.06em;
+      }
       .brand span { color: var(--primary); }
-      .nav-links { display:flex; gap:30px; color:var(--muted); }
-      .nav-actions { display:flex; gap:14px; align-items:center; }
-      .btn, .btn-alt {
-        display:inline-flex; align-items:center; justify-content:center; border-radius:999px; padding:12px 18px; font-weight:700;
+      .nav-links {
+        display: flex;
+        gap: 30px;
+        color: var(--muted);
       }
-      .btn { background: var(--primary); color: white; }
-      .btn-alt { background: var(--primary-soft); color: var(--primary); }
+      .nav-actions {
+        display: flex;
+        gap: 14px;
+        align-items: center;
+      }
+      .btn,
+      .btn-alt {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        border-radius: 999px;
+        padding: 12px 18px;
+        font-weight: 700;
+      }
+      .btn {
+        background: var(--primary);
+        color: white;
+      }
+      .btn-alt {
+        background: var(--primary-soft);
+        color: var(--primary);
+      }
+
       .hero {
-        padding: 54px 0 42px; background: linear-gradient(180deg, #f9fbff 0%, #eef5fb 100%);
+        padding: 54px 0 42px;
+        background: linear-gradient(180deg, #f9fbff 0%, #eef5fb 100%);
       }
-      .hero-grid { display:grid; grid-template-columns: 1.1fr 0.9fr; gap: 36px; align-items: center; }
+      .hero-grid {
+        display: grid;
+        grid-template-columns: 1.1fr 0.9fr;
+        gap: 36px;
+        align-items: center;
+      }
       .eyebrow {
-        display:inline-block; padding:8px 12px; background: var(--primary-soft); color: var(--primary); border-radius:999px; font-weight:700; font-size:0.76rem; letter-spacing:0.08em; text-transform:uppercase;
+        display: inline-block;
+        padding: 8px 12px;
+        background: var(--primary-soft);
+        color: var(--primary);
+        border-radius: 999px;
+        font-weight: 700;
+        font-size: 0.76rem;
+        letter-spacing: 0.08em;
+        text-transform: uppercase;
       }
-      h1 { margin: 18px 0; font-size: clamp(2.8rem, 5vw, 5rem); line-height: 0.96; letter-spacing: -0.07em; }
-      .lead { margin:0; line-height:1.8; color: var(--muted); font-size:1.08rem; max-width:560px; }
-      .cta-row { display:flex; gap:14px; flex-wrap:wrap; margin-top: 26px; }
-      .hero-stats { display:flex; flex-wrap:wrap; gap:30px; margin-top: 26px; color: var(--muted); }
-      .hero-stats strong { color: var(--text); display:block; font-size:1.2rem; }
+      h1 {
+        margin: 18px 0;
+        font-size: clamp(2.8rem, 5vw, 5rem);
+        line-height: 0.96;
+        letter-spacing: -0.07em;
+      }
+      .lead {
+        margin: 0;
+        line-height: 1.8;
+        color: var(--muted);
+        font-size: 1.08rem;
+        max-width: 560px;
+      }
+      .cta-row {
+        display: flex;
+        gap: 14px;
+        flex-wrap: wrap;
+        margin-top: 26px;
+      }
+      .hero-stats {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 30px;
+        margin-top: 26px;
+        color: var(--muted);
+      }
+      .hero-stats strong {
+        display: block;
+        color: var(--text);
+        font-size: 1.2rem;
+      }
+
       .hero-card {
-        background: linear-gradient(180deg, #fff 0%, #edf5ff 100%); border: 1px solid var(--line); border-radius: 30px; padding: 18px; box-shadow: var(--shadow);
+        background: linear-gradient(180deg, #fff 0%, #edf5ff 100%);
+        border: 1px solid var(--line);
+        border-radius: 30px;
+        padding: 18px;
+        box-shadow: var(--shadow);
       }
       .photo-panel {
-        height: 470px; border-radius: 26px; background: linear-gradient(135deg, #c8d6e5, #edf6ff 42%, #d9e7f5 100%);
-        position: relative; overflow: hidden;
+        position: relative;
+        overflow: hidden;
+        border-radius: 26px;
       }
-      .photo-panel::before {
-        content: ""; position:absolute; inset: 12% 18% 12% 14%; border-radius: 26px 26px 18px 18px; background: linear-gradient(180deg, rgba(255,255,255,0.3), rgba(20,79,125,0.14));
+      .hero-image {
+        width: 100%;
+        height: 500px;
+        object-fit: cover;
+        display: block;
       }
       .floating-card {
-        position: absolute; right: 18px; bottom: 18px; width: 220px; background: rgba(255,255,255,0.9); border: 1px solid rgba(18,32,51,0.05); border-radius: 20px; padding: 14px; box-shadow: var(--shadow);
+        position: absolute;
+        right: 18px;
+        bottom: 18px;
+        width: min(220px, calc(100% - 28px));
+        background: rgba(255, 255, 255, 0.9);
+        border: 1px solid rgba(18, 32, 51, 0.05);
+        border-radius: 20px;
+        padding: 14px;
+        box-shadow: var(--shadow);
       }
-      .floating-card .row { display:flex; justify-content:space-between; align-items:center; margin-top:8px; font-size:0.8rem; color:var(--muted); }
-      .dots { display:flex; gap:8px; }
-      .dot { width:10px; height:10px; border-radius:50%; background:#dfe7f0; }
-      .dot:nth-child(2) { background:#8ec3ff; }
-      .dot:nth-child(3) { background:#aef0c3; }
+      .floating-card .row {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        margin-top: 8px;
+        font-size: 0.8rem;
+        color: var(--muted);
+      }
+      .floating-card strong {
+        font-size: 1.05rem;
+        color: var(--text);
+      }
+      .badge {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        background: rgba(26, 163, 110, 0.1);
+        color: var(--success);
+        padding: 6px 10px;
+        border-radius: 999px;
+        font-weight: 700;
+        font-size: 0.7rem;
+      }
       .section { padding: 52px 0; }
-      .section-head { display:flex; align-items:end; justify-content:space-between; gap:24px; margin-bottom: 28px; }
-      .section-head h2 { margin:0; font-size: clamp(2rem, 3vw, 3rem); letter-spacing:-0.06em; }
-      .features-grid { display:grid; grid-template-columns: repeat(3, minmax(0,1fr)); gap:24px; }
-      .feature-card { background: white; border:1px solid var(--line); border-radius:22px; padding:24px; }
-      .feature-icon { width:52px; height:52px; border-radius:14px; background: var(--primary-soft); display:grid; place-items:center; font-weight:800; color:var(--primary); }
-      .feature-card h3 { margin:18px 0 12px; font-size:1.2rem; }
-      .feature-card p { margin:0; color:var(--muted); line-height:1.7; }
-      .listing-grid { display:grid; grid-template-columns: repeat(3, minmax(0,1fr)); gap:24px; }
-      .listing-card { background:white; border:1px solid var(--line); border-radius:24px; overflow:hidden; box-shadow:0 8px 18px rgba(18,32,51,0.04); }
-      .property-image { height: 220px; background: linear-gradient(135deg, #d9eafc, #e9f5ec); position:relative; }
-      .listing-body { padding:20px; }
-      .topline { display:flex; justify-content:space-between; align-items:center; gap:10px; }
-      .price { font-size:1.5rem; font-weight:800; letter-spacing:-0.05em; }
-      .property-name { font-size:1.2rem; font-weight:700; margin:8px 0; }
-      .meta { display:flex; justify-content:space-between; margin-top:16px; color:var(--muted); font-size:0.92rem; }
+      .section-head {
+        display: flex;
+        align-items: end;
+        justify-content: space-between;
+        gap: 24px;
+        margin-bottom: 28px;
+      }
+      .section-head h2 {
+        margin: 0;
+        font-size: clamp(2rem, 3vw, 3rem);
+        letter-spacing: -0.06em;
+      }
+      .features-grid {
+        display: grid;
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+        gap: 24px;
+      }
+      .feature-card {
+        background: white;
+        border: 1px solid var(--line);
+        border-radius: 22px;
+        padding: 24px;
+      }
+      .feature-icon {
+        width: 52px;
+        height: 52px;
+        border-radius: 14px;
+        background: var(--primary-soft);
+        display: grid;
+        place-items: center;
+        font-weight: 800;
+        color: var(--primary);
+      }
+      .feature-card h3 { margin: 18px 0 12px; font-size: 1.2rem; }
+      .feature-card p { margin: 0; color: var(--muted); line-height: 1.7; }
+
+      .listing-grid {
+        display: grid;
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+        gap: 24px;
+      }
+      .listing-card {
+        background: white;
+        border: 1px solid var(--line);
+        border-radius: 24px;
+        overflow: hidden;
+        box-shadow: 0 8px 18px rgba(18, 32, 51, 0.04);
+      }
+      .property-image {
+        height: 220px;
+        overflow: hidden;
+      }
+      .property-image img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        display: block;
+      }
+      .listing-body { padding: 20px; }
+      .topline {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        gap: 10px;
+      }
+      .price {
+        font-size: 1.5rem;
+        font-weight: 800;
+        letter-spacing: -0.05em;
+      }
+      .property-name {
+        font-size: 1.2rem;
+        font-weight: 700;
+        margin: 8px 0;
+      }
+      .meta {
+        display: flex;
+        justify-content: space-between;
+        margin-top: 16px;
+        color: var(--muted);
+        font-size: 0.92rem;
+      }
       .cta-banner {
-        background: linear-gradient(135deg, #0f172a 0%, #12395e 100%); border-radius: 30px; color: white; padding: 28px; display: flex; align-items: center; justify-content: space-between; gap: 20px; flex-wrap: wrap;
+        background: linear-gradient(135deg, #0f172a 0%, #12395e 100%);
+        border-radius: 30px;
+        color: white;
+        padding: 28px;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 20px;
+        flex-wrap: wrap;
       }
-      .cta-banner p { margin:0; color: rgba(255,255,255,0.8); }
+      .cta-banner p { margin: 0; color: rgba(255, 255, 255, 0.8); }
       footer { padding: 26px 0 42px; text-align: center; color: var(--muted); }
+
       @media (max-width: 900px) {
-        .hero-grid, .features-grid, .listing-grid { grid-template-columns: 1fr; }
-        .nav-links { display:none; }
+        .hero-grid,
+        .features-grid,
+        .listing-grid {
+          grid-template-columns: 1fr;
+        }
+        .nav-links { display: none; }
       }
+
       @media (max-width: 640px) {
-        .nav-actions .btn-alt { display:none; }
-        .cta-row { flex-direction:column; }
-        .btn, .btn-alt { width:100%; }
+        .nav-actions .btn-alt { display: none; }
+        .cta-row { flex-direction: column; }
+        .btn, .btn-alt { width: 100%; }
       }
     </style>
   </head>
   <body>
     <header class="topbar">
       <div class="container nav">
-        <a href="#" class="brand"><span>Velora</span> Realty</a>
+        <a href="#" class="brand" aria-label="Velora Realty home"><span>Velora</span> Realty</a>
         <nav class="nav-links" aria-label="Main navigation">
           <a href="#properties">Properties</a>
           <a href="#services">Services</a>
@@ -125,7 +322,9 @@
           <div>
             <span class="eyebrow">Find your future home</span>
             <h1>Luxury spaces for modern living.</h1>
-            <p class="lead">Discover thoughtfully designed homes, premium neighborhoods, and investment opportunities tailored to the way you live today.</p>
+            <p class="lead">
+              Discover thoughtfully designed homes, premium neighborhoods, and investment opportunities tailored to the way you live today.
+            </p>
             <div class="cta-row">
               <a href="#properties" class="btn">Explore listings</a>
               <a href="#services" class="btn-alt">How it works</a>
@@ -139,16 +338,23 @@
 
           <div class="hero-card" aria-label="Featured property preview">
             <div class="photo-panel">
+              <img
+                class="hero-image"
+                src="https://images.unsplash.com/photo-1512917774080-9991f1c4c750?auto=format&fit=crop&w=1200&q=80"
+                alt="Luxury home exterior with glass windows and landscaped front yard"
+              />
               <div class="floating-card">
-                <div class="row"><strong>Oak Terrace</strong><span class="badge" style="background: rgba(26,163,110,0.1); color: var(--success); padding: 6px 10px; border-radius: 999px; font-weight:700;">Open house</span></div>
-                <div class="row"><span>3 Bed | 2 Bath</span><span style="color:var(--text); font-weight:700;">$980k</span></div>
                 <div class="row">
-                  <div class="dots" aria-label="Property features">
-                    <span class="dot"></span>
-                    <span class="dot"></span>
-                    <span class="dot"></span>
-                  </div>
+                  <strong>Oak Terrace</strong>
+                  <span class="badge">Open house</span>
+                </div>
+                <div class="row">
+                  <span>3 Bed | 2 Bath</span>
+                  <span style="color: var(--text); font-weight: 700;">$980k</span>
+                </div>
+                <div class="row">
                   <span>2,240 sq ft</span>
+                  <span>New</span>
                 </div>
               </div>
             </div>
@@ -194,7 +400,13 @@
 
         <div class="listing-grid">
           <article class="listing-card">
-            <div class="property-image" aria-hidden="true"></div>
+            <div class="property-image">
+              <img
+                src="https://images.unsplash.com/photo-1494526585095-c41746248156?auto=format&fit=crop&w=900&q=80"
+                alt="Large waterfront villa with glass walls and pool"
+                loading="lazy"
+              />
+            </div>
             <div class="listing-body">
               <div class="topline">
                 <span class="property-name">Lakeside Villa</span>
@@ -209,7 +421,13 @@
           </article>
 
           <article class="listing-card">
-            <div class="property-image" style="background:linear-gradient(135deg, #dcecf9, #ddf6e9);" aria-hidden="true"></div>
+            <div class="property-image">
+              <img
+                src="https://images.unsplash.com/photo-1502672260266-1c1ef2d93688?auto=format&fit=crop&w=900&q=80"
+                alt="Modern apartment building with large windows in an urban neighborhood"
+                loading="lazy"
+              />
+            </div>
             <div class="listing-body">
               <div class="topline">
                 <span class="property-name">Skyline Residences</span>
@@ -224,7 +442,13 @@
           </article>
 
           <article class="listing-card">
-            <div class="property-image" style="background:linear-gradient(135deg, #ead6cb, #ddebf9);" aria-hidden="true"></div>
+            <div class="property-image">
+              <img
+                src="https://images.unsplash.com/photo-1448630360428-65456885c650?auto=format&fit=crop&w=900&q=80"
+                alt="Contemporary home facade with warm wood and large windows"
+                loading="lazy"
+              />
+            </div>
             <div class="listing-body">
               <div class="topline">
                 <span class="property-name">Maple Grove</span>
@@ -243,8 +467,8 @@
       <section class="section container">
         <div class="cta-banner">
           <div>
-            <p style="margin:0 0 8px; text-transform:uppercase; letter-spacing:0.12em; font-size:0.7rem; font-weight:700;">Start your search</p>
-            <h3 style="margin:0; font-size: clamp(1.8rem, 3vw, 2.6rem); letter-spacing:-0.05em;">Let us help you find the right place to call home.</h3>
+            <p style="margin: 0 0 8px; text-transform: uppercase; letter-spacing: 0.12em; font-size: 0.7rem; font-weight: 700;">Start your search</p>
+            <h3 style="margin: 0; font-size: clamp(1.8rem, 3vw, 2.6rem); letter-spacing: -0.05em;">Let us help you find the right place to call home.</h3>
           </div>
           <a href="#" class="btn">Schedule a consultation</a>
         </div>
