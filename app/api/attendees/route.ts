@@ -5,12 +5,17 @@ export async function GET() {
 }
 
 export async function POST(request: Request) {
-  const payload = await request.json();
-  const attendee = {
-    id: Date.now(),
-    ...payload,
-  };
+  try {
+    const payload = await request.json();
+    const attendee = {
+      id: Date.now(),
+      ...payload,
+    };
 
-  mockAttendees.push(attendee);
-  return Response.json({ attendee });
+    mockAttendees.push(attendee);
+    return Response.json({ attendee }, { status: 201 });
+  } catch (error) {
+    return Response.json({ error: 'Failed to create attendee' }, { status: 400 });
+  }
 }
+

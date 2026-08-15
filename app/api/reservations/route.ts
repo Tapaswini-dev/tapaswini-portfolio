@@ -5,12 +5,17 @@ export async function GET() {
 }
 
 export async function POST(request: Request) {
-  const payload = await request.json();
-  const reservation = {
-    id: Date.now(),
-    ...payload,
-  };
+  try {
+    const payload = await request.json();
+    const reservation = {
+      id: Date.now(),
+      ...payload,
+    };
 
-  mockReservations.push(reservation);
-  return Response.json({ reservation });
+    mockReservations.push(reservation);
+    return Response.json({ reservation }, { status: 201 });
+  } catch (error) {
+    return Response.json({ error: 'Failed to create reservation' }, { status: 400 });
+  }
 }
+
