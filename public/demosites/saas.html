@@ -1,0 +1,352 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>SaaS Landing Page</title>
+    <style>
+      :root {
+        --bg: #0b1020;
+        --bg-soft: #121a2d;
+        --panel: #ffffff;
+        --panel-alt: #f3f6ff;
+        --primary: #5b5ce7;
+        --primary-dark: #3e44d8;
+        --text: #1b2435;
+        --muted: #667085;
+        --line: rgba(17, 25, 40, 0.08);
+        --success: #11b981;
+        --shadow: 0 18px 45px rgba(24, 39, 75, 0.14);
+      }
+
+      * { box-sizing: border-box; }
+      html { scroll-behavior: smooth; }
+      body {
+        margin: 0;
+        font-family: Arial, Helvetica, sans-serif;
+        background: linear-gradient(180deg, #edf3ff 0%, #ffffff 10%, #f9fbff 100%);
+        color: var(--text);
+      }
+      a { text-decoration: none; color: inherit; }
+      img { max-width: 100%; display: block; }
+      .container { width: min(1180px, calc(100% - 32px)); margin: 0 auto; }
+      .topbar {
+        position: sticky; top: 0; z-index: 10;
+        background: rgba(255, 255, 255, 0.82);
+        backdrop-filter: blur(8px);
+        border-bottom: 1px solid var(--line);
+      }
+      .nav {
+        display: flex; align-items: center; justify-content: space-between;
+        min-height: 72px;
+      }
+      .brand {
+        display: inline-flex; align-items: center; gap: 10px; font-weight: 700; font-size: 1.2rem;
+      }
+      .brand-mark {
+        width: 32px; height: 32px; border-radius: 10px; background: linear-gradient(135deg, var(--primary), #8a7ef8);
+        display: grid; place-items: center; color: white; font-size: 0.9rem; font-weight: 700;
+      }
+      .nav-links {
+        display: flex; align-items: center; gap: 32px; color: var(--muted); font-size: 0.96rem;
+      }
+      .nav-cta {
+        display: inline-flex; align-items: center; justify-content: center;
+        gap: 8px; padding: 12px 18px; border-radius: 999px; background: var(--bg); color: white; font-weight: 600;
+      }
+      .hero {
+        padding: 72px 0 56px;
+      }
+      .hero-grid {
+        display: grid; grid-template-columns: 1.15fr 0.85fr; gap: 38px; align-items: center;
+      }
+      .eyebrow {
+        display: inline-block; padding: 8px 12px; border-radius: 999px; background: rgba(91, 92, 231, 0.08); color: var(--primary-dark); font-weight: 700; font-size: 0.76rem; letter-spacing: 0.08em; text-transform: uppercase;
+      }
+      h1 {
+        margin: 18px 0 18px; font-size: clamp(2.4rem, 5vw, 4.3rem); line-height: 1.08; letter-spacing: -0.06em;
+      }
+      .lead {
+        margin: 0; max-width: 600px; font-size: 1.08rem; color: var(--muted); line-height: 1.8;
+      }
+      .cta-row {
+        display: flex; flex-wrap: wrap; gap: 16px; margin-top: 28px;
+      }
+      .btn-primary, .btn-secondary {
+        display: inline-flex; align-items: center; justify-content: center; border-radius: 14px; padding: 16px 22px; font-weight: 700; transition: 0.25s ease;
+      }
+      .btn-primary {
+        background: linear-gradient(135deg, var(--primary), #7c6bf6); color: white; box-shadow: var(--shadow);
+      }
+      .btn-secondary {
+        background: white; border: 1px solid var(--line); color: var(--text);
+      }
+      .hero-meta {
+        display: flex; flex-wrap: wrap; gap: 28px; margin-top: 26px; color: var(--muted); font-size: 0.95rem;
+      }
+      .hero-meta strong { color: var(--text); }
+      .hero-visual {
+        position: relative; background: linear-gradient(180deg, #101a2f 0%, #1d2a42 100%); border-radius: 30px; padding: 24px; box-shadow: var(--shadow);
+      }
+      .dash-panel {
+        background: rgba(255,255,255,0.08); border: 1px solid rgba(255,255,255,0.1); border-radius: 18px; padding: 18px; color: white;
+      }
+      .mini-row { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 12px; margin-top: 14px; }
+      .mini-box {
+        background: rgba(255,255,255,0.07); border: 1px solid rgba(255,255,255,0.08); border-radius: 12px; padding: 15px; min-height: 90px;
+      }
+      .mini-box strong { display: block; font-size: 1.25rem; margin-top: 8px; }
+      .analytics {
+        display: grid; grid-template-columns: 1.2fr 0.8fr; gap: 14px; margin-top: 18px;
+      }
+      .chart {
+        background: rgba(255,255,255,0.08); border: 1px solid rgba(255,255,255,0.08); border-radius: 16px; padding: 16px;
+      }
+      .bars {
+        display: flex; align-items: end; gap: 10px; height: 120px; margin-top: 14px;
+      }
+      .bars span {
+        display: block; flex: 1; border-radius: 10px 10px 0 0; background: linear-gradient(180deg, #7c6bf6, #c7d2fe);
+      }
+      .section { padding: 40px 0; }
+      .section-header {
+        display: flex; align-items: end; justify-content: space-between; gap: 20px; margin-bottom: 26px;
+      }
+      .section-header h2 {
+        margin: 0; font-size: clamp(1.8rem, 3vw, 2.7rem); letter-spacing: -0.05em;
+      }
+      .muted { color: var(--muted); }
+      .features {
+        display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 26px;
+      }
+      .feature-card {
+        background: white; border: 1px solid var(--line); border-radius: 22px; padding: 24px; box-shadow: 0 14px 25px rgba(18, 40, 82, 0.05);
+      }
+      .icon {
+        width: 48px; height: 48px; border-radius: 14px; display: grid; place-items: center; background: rgba(91, 92, 231, 0.08); color: var(--primary-dark); font-weight: 700;
+      }
+      .feature-card h3 { margin: 18px 0 10px; font-size: 1.2rem; }
+      .feature-card p { margin: 0; color: var(--muted); line-height: 1.7; }
+      .stats-strip {
+        margin: 44px 0; background: linear-gradient(135deg, #0d1530, #141c38 65%, #1c2745);
+        border-radius: 28px; padding: 28px 24px; color: white;
+      }
+      .stats-grid {
+        display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 20px; text-align: center;
+      }
+      .stats-grid strong { display: block; font-size: clamp(1.8rem, 3vw, 2.5rem); }
+      .pricing {
+        display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 26px;
+      }
+      .price-card {
+        background: white; border: 1px solid var(--line); border-radius: 24px; padding: 26px; box-shadow: 0 14px 25px rgba(18, 40, 82, 0.05);
+      }
+      .price-card.featured {
+        background: linear-gradient(180deg, #f5f3ff 0%, #ffffff 100%); border-color: rgba(122, 109, 246, 0.5); position: relative; overflow: hidden;
+      }
+      .badge {
+        display: inline-block; background: rgba(91, 92, 231, 0.12); color: var(--primary-dark); padding: 8px 10px; border-radius: 999px; font-size: 0.72rem; font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase;
+      }
+      .price {
+        display: flex; align-items: baseline; gap: 8px; margin: 18px 0 10px; font-weight: 700;
+      }
+      .price strong { font-size: 2.8rem; }
+      .price-card ul { list-style: none; padding: 0; margin: 22px 0 0; }
+      .price-card li { margin-bottom: 12px; color: var(--muted); }
+      .price-card li::before { content: '✓'; color: var(--success); margin-right: 10px; font-weight: 700; }
+      .cta-banner {
+        margin-top: 52px; background: linear-gradient(135deg, rgba(91,92,231, 0.1), rgba(104, 195, 240, 0.12)); border: 1px solid var(--line); border-radius: 28px; padding: clamp(22px, 2vw, 32px);
+      }
+      .cta-wrap {
+        display: flex; align-items: center; justify-content: space-between; gap: 20px; flex-wrap: wrap;
+      }
+      footer {
+        padding: 28px 0 42px; color: var(--muted); text-align: center;
+      }
+      @media (max-width: 900px) {
+        .hero-grid, .features, .pricing, .stats-grid { grid-template-columns: 1fr; }
+        .nav-links { display: none; }
+        .section-header { display: block; }
+      }
+      @media (max-width: 640px) {
+        .nav { min-height: 64px; }
+        .nav-cta { display: none; }
+        .hero { padding-top: 44px; }
+        .cta-row { flex-direction: column; }
+        .btn-primary, .btn-secondary { width: 100%; }
+        .hero-meta { gap: 12px; }
+      }
+    </style>
+  </head>
+  <body>
+    <header class="topbar">
+      <div class="container nav">
+        <a href="#" class="brand">
+          <span class="brand-mark">A</span>
+          AcmeFlow
+        </a>
+        <nav class="nav-links" aria-label="Main navigation">
+          <a href="#features">Features</a>
+          <a href="#solutions">Solutions</a>
+          <a href="#pricing">Pricing</a>
+          <a href="#customers">Customers</a>
+        </nav>
+        <a href="#pricing" class="nav-cta">Get started</a>
+      </div>
+    </header>
+
+    <main>
+      <section class="hero">
+        <div class="container hero-grid">
+          <div>
+            <span class="eyebrow">Built for growth</span>
+            <h1>Turn marketing chaos into measurable momentum.</h1>
+            <p class="lead">
+              Launch smarter campaigns, automate repetitive work, and turn data into action with a platform designed for modern SaaS teams.
+            </p>
+            <div class="cta-row">
+              <a href="#pricing" class="btn-primary">Start free trial</a>
+              <a href="#features" class="btn-secondary">See platform</a>
+            </div>
+            <div class="hero-meta" aria-label="Statistics summary">
+              <div><strong>12k+</strong> teams onboarded</div>
+              <div><strong>4.9/5</strong> customer rating</div>
+              <div><strong>32%</strong> faster execution</div>
+            </div>
+          </div>
+
+          <div class="hero-visual" aria-label="Dashboard mockup">
+            <div class="dash-panel">
+              <div style="display:flex;justify-content:space-between;align-items:center;">
+                <strong>Performance Overview</strong>
+                <span style="font-size:0.75rem; color:#cfe1ff;">Live</span>
+              </div>
+
+              <div class="mini-row">
+                <div class="mini-box"><span>Visitors</span><strong>18.4K</strong></div>
+                <div class="mini-box"><span>Leads</span><strong>2.1K</strong></div>
+                <div class="mini-box"><span>MRR</span><strong>$48K</strong></div>
+              </div>
+
+              <div class="analytics">
+                <div class="chart">
+                  <div style="font-size:0.84rem; color:#dfe8ff;">Monthly growth</div>
+                  <div class="bars" aria-label="Bar chart">
+                    <span style="height: 30%;"></span>
+                    <span style="height: 58%;"></span>
+                    <span style="height: 45%;"></span>
+                    <span style="height: 82%;"></span>
+                    <span style="height: 70%;"></span>
+                    <span style="height: 96%;"></span>
+                  </div>
+                </div>
+                <div class="chart">
+                  <div style="font-size:0.84rem; color:#dfe8ff;">Conversion</div>
+                  <div style="display:grid; place-items:center; padding:18px 0 0;">
+                    <div style="width:92px; height:92px; border-radius:50%; border:10px solid rgba(255,255,255,0.14); border-top-color:#8b7efb; transform:rotate(30deg);"> </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section id="features" class="section container">
+        <div class="section-header">
+          <div>
+            <p class="eyebrow" style="background:rgba(91, 92, 231, 0.08);">Why teams choose us</p>
+            <h2>Everything your marketing engine needs.</h2>
+          </div>
+          <p class="muted">Built for speed, visibility, and confident decision-making.</p>
+        </div>
+
+        <div class="features">
+          <article class="feature-card">
+            <div class="icon">01</div>
+            <h3>Unified dashboards</h3>
+            <p>See funnel performance, acquisition metrics, and campaign output in a single, actionable view.</p>
+          </article>
+          <article class="feature-card">
+            <div class="icon">02</div>
+            <h3>Smart automations</h3>
+            <p>Trigger internal workflows and nurture actions based on event-driven rules and customer behavior.</p>
+          </article>
+          <article class="feature-card">
+            <div class="icon">03</div>
+            <h3>Faster reporting</h3>
+            <p>Share polished updates with stakeholders using live data snapshots, charts, and export-ready summaries.</p>
+          </article>
+        </div>
+      </section>
+
+      <section class="stats-strip container" aria-label="Business metrics">
+        <div class="stats-grid">
+          <div><strong>8x</strong><span>faster decision loops</span></div>
+          <div><strong>94%</strong><span>team adoption rate</span></div>
+          <div><strong>2.4M</strong><span>qualified touches</span></div>
+          <div><strong>40%</strong><span>lower retention cost</span></div>
+        </div>
+      </section>
+
+      <section id="pricing" class="section container">
+        <div class="section-header">
+          <div>
+            <p class="eyebrow" style="background:rgba(91, 92, 231, 0.08);">Pricing</p>
+            <h2>Choose the plan that fits your growth stage.</h2>
+          </div>
+          <p class="muted">Simple pricing with transparent scaling.</p>
+        </div>
+
+        <div class="pricing">
+          <article class="price-card">
+            <span class="badge">Starter</span>
+            <div class="price"><strong>$29</strong><span>/ seat</span></div>
+            <p class="muted">For smaller teams launching their first campaign engine.</p>
+            <ul>
+              <li>Unlimited projects</li>
+              <li>Core dashboard</li>
+              <li>Email automation</li>
+            </ul>
+          </article>
+
+          <article class="price-card featured">
+            <span class="badge">Growth</span>
+            <div class="price"><strong>$79</strong><span>/ seat</span></div>
+            <p class="muted">For scaling teams that need deeper visibility and workflow orchestration.</p>
+            <ul>
+              <li>Advanced analytics</li>
+              <li>Custom reporting</li>
+              <li>Workflow automations</li>
+            </ul>
+          </article>
+
+          <article class="price-card">
+            <span class="badge">Enterprise</span>
+            <div class="price"><strong>$149</strong><span>/ seat</span></div>
+            <p class="muted">For organizations requiring deeper governance, security, and support.</p>
+            <ul>
+              <li>SSO & permissions</li>
+              <li>Priority support</li>
+              <li>Custom onboarding</li>
+            </ul>
+          </article>
+        </div>
+
+        <div class="cta-banner">
+          <div class="cta-wrap">
+            <div>
+              <p class="eyebrow" style="background:rgba(91, 92, 231, 0.08);">Ready to scale?</p>
+              <h3 style="margin:10px 0 0; font-size: clamp(1.5rem, 3vw, 2.3rem); letter-spacing:-0.04em;">Build your next growth engine with confidence.</h3>
+            </div>
+            <a href="#" class="btn-primary">Book a demo</a>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer>
+      © 2026 AcmeFlow. Built for product teams that need momentum.
+    </footer>
+  </body>
+</html>
