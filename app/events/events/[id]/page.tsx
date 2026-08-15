@@ -27,17 +27,17 @@ export default function EventDetailsPage() {
   return (
     <div className="space-y-6">
       <div className="flex flex-col gap-4 sm:flex-row sm:items-center sm:justify-between">
-        <Link href="/events-demo/events" className="inline-flex items-center gap-2 text-sm font-medium text-slate-600">
+        <Link href="/events/events" className="inline-flex items-center gap-2 text-sm font-medium text-slate-600">
           <ArrowLeft className="h-4 w-4" />
           Back to events
         </Link>
 
         <div className="flex items-center gap-3">
-          <Link href={`/events-demo/events/${event.id}/edit`} className="inline-flex items-center gap-2 rounded-2xl border border-slate-200 bg-white px-4 py-2.5 text-sm font-semibold text-slate-700 transition hover:bg-slate-50">
+          <Link href={`/events/events/${event.id}/edit`} className="inline-flex items-center gap-2 rounded-2xl border border-slate-200 bg-white px-4 py-2.5 text-sm font-semibold text-slate-700 transition hover:bg-slate-50">
             <PencilLine className="h-4 w-4" />
             Edit Event
           </Link>
-          <button type="button" onClick={() => { removeEvent(event.id); router.push('/events-demo/events'); }} className="inline-flex items-center gap-2 rounded-2xl border border-rose-200 bg-rose-50 px-4 py-2.5 text-sm font-semibold text-rose-700 transition hover:bg-rose-100">
+          <button type="button" onClick={() => { removeEvent(event.id); router.push('/events/events'); }} className="inline-flex items-center gap-2 rounded-2xl border border-rose-200 bg-rose-50 px-4 py-2.5 text-sm font-semibold text-rose-700 transition hover:bg-rose-100">
             <Trash2 className="h-4 w-4" />
             Delete Event
           </button>

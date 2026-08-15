@@ -17,7 +17,7 @@ export default function NewEventPage() {
     });
 
     upsertEvent({ ...result, registeredAttendees: 0 });
-    router.push('/events-demo/events');
+    router.push('/events/events');
   };
 
   return (

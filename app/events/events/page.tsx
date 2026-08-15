@@ -56,7 +56,7 @@ export default function EventManagementPage() {
           <p className="text-xs font-semibold uppercase tracking-[0.28em] text-indigo-600">Management</p>
           <h1 className="mt-2 text-3xl font-bold text-slate-900">Event management</h1>
         </div>
-        <Link href="/events-demo/events/new" className="inline-flex items-center justify-center rounded-2xl bg-slate-900 px-4 py-2.5 text-sm font-semibold text-white shadow-lg shadow-slate-900/10 transition hover:bg-slate-800">
+        <Link href="/events/events/new" className="inline-flex items-center justify-center rounded-2xl bg-slate-900 px-4 py-2.5 text-sm font-semibold text-white shadow-lg shadow-slate-900/10 transition hover:bg-slate-800">
           + New event
         </Link>
       </div>
@@ -128,8 +128,8 @@ export default function EventManagementPage() {
                       <td className="px-5 py-4"><StatusBadge value={event.status} type="event" /></td>
                       <td className="px-5 py-4">
                         <div className="flex items-center gap-2">
-                          <Link href={`/events-demo/events/${event.id}`} className="rounded-xl border border-slate-200 p-2 text-slate-600 transition hover:bg-slate-100" aria-label={`View ${event.name}`}><Eye className="h-4 w-4" /></Link>
-                          <Link href={`/events-demo/events/${event.id}/edit`} className="rounded-xl border border-slate-200 p-2 text-slate-600 transition hover:bg-slate-100" aria-label={`Edit ${event.name}`}><Pencil className="h-4 w-4" /></Link>
+                          <Link href={`/events/events/${event.id}`} className="rounded-xl border border-slate-200 p-2 text-slate-600 transition hover:bg-slate-100" aria-label={`View ${event.name}`}><Eye className="h-4 w-4" /></Link>
+                          <Link href={`/events/events/${event.id}/edit`} className="rounded-xl border border-slate-200 p-2 text-slate-600 transition hover:bg-slate-100" aria-label={`Edit ${event.name}`}><Pencil className="h-4 w-4" /></Link>
                           <button onClick={() => deleteEvent(event.id)} className="rounded-xl border border-rose-200 bg-rose-50 p-2 text-rose-600 transition hover:bg-rose-100" aria-label={`Delete ${event.name}`}><Trash2 className="h-4 w-4" /></button>
                         </div>
                       </td>

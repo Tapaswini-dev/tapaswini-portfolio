@@ -6,10 +6,10 @@ import { BarChart3, CalendarDays, LayoutDashboard, Menu, MessageSquareText, User
 import { useState } from 'react';
 
 const navItems = [
-  { href: '/events-demo', label: 'Dashboard', icon: LayoutDashboard },
-  { href: '/events-demo/events', label: 'Events', icon: CalendarDays },
-  { href: '/events-demo/attendees', label: 'Attendees', icon: Users },
-  { href: '/events-demo/reservations', label: 'Reservations', icon: MessageSquareText },
+  { href: '/events', label: 'Dashboard', icon: LayoutDashboard },
+  { href: '/events/events', label: 'Events', icon: CalendarDays },
+  { href: '/events/attendees', label: 'Attendees', icon: Users },
+  { href: '/events/reservations', label: 'Reservations', icon: MessageSquareText },
 ];
 
 export function EventsAppShell({ children }: { children: React.ReactNode }) {
@@ -32,7 +32,7 @@ export function EventsAppShell({ children }: { children: React.ReactNode }) {
 
           <nav className="space-y-2 p-4">
             {navItems.map(({ href, label, icon: Icon }) => {
-              const active = pathname === href || (href !== '/events-demo' && pathname.startsWith(href));
+              const active = pathname === href || (href !== '/events' && pathname.startsWith(href));
 
               return (
                 <Link

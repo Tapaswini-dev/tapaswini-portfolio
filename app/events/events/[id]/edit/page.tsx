@@ -22,7 +22,7 @@ export default function EditEventPage() {
       ...values,
     });
     upsertEvent(updated);
-    router.push(`/events-demo/events/${event.id}`);
+    router.push(`/events/events/${event.id}`);
   };
 
   return (

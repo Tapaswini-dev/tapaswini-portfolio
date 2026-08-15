@@ -66,11 +66,11 @@ export default function EventsDashboardPage() {
         </div>
 
         <div className="flex flex-wrap gap-3">
-          <Link href="/events-demo/events/new" className="inline-flex items-center gap-2 rounded-2xl bg-slate-900 px-4 py-2.5 text-sm font-semibold text-white shadow-lg shadow-slate-900/10 transition hover:bg-slate-800">
+          <Link href="/events/events/new" className="inline-flex items-center gap-2 rounded-2xl bg-slate-900 px-4 py-2.5 text-sm font-semibold text-white shadow-lg shadow-slate-900/10 transition hover:bg-slate-800">
             <Plus className="h-4 w-4" />
             Create Event
           </Link>
-          <Link href="/events-demo/events" className="inline-flex items-center gap-2 rounded-2xl border border-slate-200 bg-white px-4 py-2.5 text-sm font-semibold text-slate-700 transition hover:bg-slate-50">
+          <Link href="/events/events" className="inline-flex items-center gap-2 rounded-2xl border border-slate-200 bg-white px-4 py-2.5 text-sm font-semibold text-slate-700 transition hover:bg-slate-50">
             Manage Events
             <ArrowRight className="h-4 w-4" />
           </Link>
@@ -164,7 +164,7 @@ export default function EventsDashboardPage() {
               <p className="text-sm font-medium text-slate-500">Pipeline</p>
               <h3 className="text-xl font-semibold text-slate-900">Recent events</h3>
             </div>
-            <Link href="/events-demo/events" className="text-sm font-semibold text-indigo-600">View all</Link>
+            <Link href="/events/events" className="text-sm font-semibold text-indigo-600">View all</Link>
           </div>
           <div className="space-y-4">
             {recentEvents.map((event) => (
@@ -191,7 +191,7 @@ export default function EventsDashboardPage() {
               <p className="text-sm font-medium text-slate-500">Schedule</p>
               <h3 className="text-xl font-semibold text-slate-900">Upcoming events</h3>
             </div>
-            <Link href="/events-demo/events" className="text-sm font-semibold text-indigo-600">Manage</Link>
+            <Link href="/events/events" className="text-sm font-semibold text-indigo-600">Manage</Link>
           </div>
 
           <div className="space-y-4">
@@ -223,7 +223,7 @@ export default function EventsDashboardPage() {
               <p className="text-sm font-medium text-slate-500">Latest activity</p>
               <h3 className="text-xl font-semibold text-slate-900">Recent attendee activity</h3>
             </div>
-            <Link href="/events-demo/attendees" className="text-sm font-semibold text-indigo-600">See all</Link>
+            <Link href="/events/attendees" className="text-sm font-semibold text-indigo-600">See all</Link>
           </div>
           <div className="space-y-4">
             {attendees.slice(0, 6).map((attendee) => (
@@ -247,21 +247,21 @@ export default function EventsDashboardPage() {
             <h3 className="text-xl font-semibold text-slate-900">Operations</h3>
           </div>
           <div className="space-y-3">
-            <Link href="/events-demo/events/new" className="flex items-center justify-between rounded-2xl border border-slate-200 bg-slate-50 p-4 text-left transition hover:bg-slate-100">
+            <Link href="/events/events/new" className="flex items-center justify-between rounded-2xl border border-slate-200 bg-slate-50 p-4 text-left transition hover:bg-slate-100">
               <span>
                 <span className="block font-semibold text-slate-800">Add new event</span>
                 <span className="text-sm text-slate-500">Launch a new campaign or summit</span>
               </span>
               <ArrowRight className="h-4 w-4 text-slate-500" />
             </Link>
-            <Link href="/events-demo/reservations" className="flex items-center justify-between rounded-2xl border border-slate-200 bg-slate-50 p-4 text-left transition hover:bg-slate-100">
+            <Link href="/events/reservations" className="flex items-center justify-between rounded-2xl border border-slate-200 bg-slate-50 p-4 text-left transition hover:bg-slate-100">
               <span>
                 <span className="block font-semibold text-slate-800">Review reservations</span>
                 <span className="text-sm text-slate-500">Confirm pending seats and approvals</span>
               </span>
               <ArrowRight className="h-4 w-4 text-slate-500" />
             </Link>
-            <Link href="/events-demo/attendees" className="flex items-center justify-between rounded-2xl border border-slate-200 bg-slate-50 p-4 text-left transition hover:bg-slate-100">
+            <Link href="/events/attendees" className="flex items-center justify-between rounded-2xl border border-slate-200 bg-slate-50 p-4 text-left transition hover:bg-slate-100">
               <span>
                 <span className="block font-semibold text-slate-800">Manage attendees</span>
                 <span className="text-sm text-slate-500">Track registrations and attendance</span>

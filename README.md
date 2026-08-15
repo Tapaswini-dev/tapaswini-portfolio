@@ -136,7 +136,7 @@ app/
     attendees/
     events/
     reservations/
-  events-demo/
+  events/
 components/
   events/
 data/

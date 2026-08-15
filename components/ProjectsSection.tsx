@@ -7,7 +7,7 @@ const projects = [
       'A React and TypeScript dashboard for event planning, attendee tracking, and streamlined reservation workflows with API-based content management.',
     technologies: ['React.js', 'TypeScript', 'REST API'],
     github: 'https://github.com/Tapaswini-dev/events',
-    demo: '/events-demo',
+    demo: '/events',
     features: ['Event listing', 'Search and filters', 'Attendee management', 'Responsive dashboard']
   },
   {
@@ -16,7 +16,7 @@ const projects = [
       'A portfolio/demo analytics interface built with React, TypeScript, and charting tools to present complex business data in a clean executive layout.',
     technologies: ['React.js', 'TypeScript', 'Recharts', 'Tailwind CSS'],
     github: 'https://github.com/Tapaswini-dev',
-    demo: '/events-demo',
+    demo: '/events',
     features: ['Visual charts', 'Executive metrics', 'Responsive layout', 'Data storytelling']
   },
   {
@@ -25,7 +25,7 @@ const projects = [
       'A modern product discovery interface built with Next.js and TypeScript, designed for browsing, filtering, and conversion-focused storefront experiences.',
     technologies: ['Next.js', 'TypeScript', 'REST API', 'Tailwind CSS'],
     github: 'https://github.com/Tapaswini-dev',
-    demo: '/events-demo',
+    demo: '/events',
     features: ['Product listing', 'Search', 'Filters', 'Modern storefront UI']
   }
 ];
