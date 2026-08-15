@@ -13,18 +13,45 @@ export function useEventData() {
     try {
       setLoading(true);
       setError(null);
-      const [eventData, attendeeData, reservationData] = await Promise.all([
+      
+      // Load data with individual error handling instead of Promise.all
+      // This way, if one API fails, others still load
+      const [eventData, attendeeData, reservationData] = await Promise.allSettled([
         eventApi.getEvents(),
         eventApi.getAttendees(),
         eventApi.getReservations(),
       ]);
 
-      setEvents(eventData);
-      setAttendees(attendeeData);
-      setReservations(reservationData);
+      // Handle results with proper error checking
+      if (eventData.status === 'fulfilled') {
+        setEvents(eventData.value);
+      } else {
+        console.error('Failed to load events:', eventData.reason);
+        setEvents([]);
+      }
+
+      if (attendeeData.status === 'fulfilled') {
+        setAttendees(attendeeData.value);
+      } else {
+        console.error('Failed to load attendees:', attendeeData.reason);
+        setAttendees([]);
+      }
+
+      if (reservationData.status === 'fulfilled') {
+        setReservations(reservationData.value);
+      } else {
+        console.error('Failed to load reservations:', reservationData.reason);
+        setReservations([]);
+      }
+
+      // Only show error if all three failed
+      const allFailed = eventData.status === 'rejected' && attendeeData.status === 'rejected' && reservationData.status === 'rejected';
+      if (allFailed) {
+        setError('Unable to load event data. Please refresh the page.');
+      }
     } catch (err) {
-      setError('Unable to load event data. Please refresh or try again later.');
-      console.error(err);
+      setError('An unexpected error occurred. Please try again.');
+      console.error('Unexpected error in refresh:', err);
     } finally {
       setLoading(false);
     }
